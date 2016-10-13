@@ -1,0 +1,8 @@
+## Dependencies update
+
+This version updates dependencies for ScalaCheck (`1.13.0`) and Scalaz-stream (version `0.8a` for Scala `2.12.0-M3`).
+
+## Improvements
+
+ * [scalacheck] added a `properties` method to create several examples for a `Properties` object
+ * [html] added an tab icon on the generated html pages

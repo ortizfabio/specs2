@@ -1,0 +1,17 @@
+Maintenance version
+
+## Improvements
+
+ * added a `Filterable` interface on the JUnit runner to make it category-aware [#256](http://github.com/etorreborre/specs2/issues/256)
+ * added a `org.specs2.matcher.NoConcurrentExecutionContext` trait to remove the implicit execution context for FutureMatchers
+ * added a `BuildInfo` object for each jar containing: the module name, the version, the scala version, the commit and the timestamp
+
+## Fixes
+
+ * added back the specs2.files to its proper place [#258](http://github.com/etorreborre/specs2/issues/258)
+ * fixed an unsafe type conversion with mockito [#260](http://github.com/etorreborre/specs2/issues/260)
+ * remove scalacheck dependency from matcherExtra module [#261](http://github.com/etorreborre/specs2/issues/261) (thanks to @xuwei_k)
+ * mockito - don't match maps and functions as equal [#262](http://github.com/etorreborre/specs2/issues/262) (thanks to @fwbrasil)
+
+ ==========================
+

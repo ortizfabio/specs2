@@ -1,0 +1,295 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.specs2</groupId>
+    <artifactId>specs2-parent_2.11</artifactId>
+    <packaging>pom</packaging>
+    <description>specs2</description>
+    <version>3.8.4</version>
+    <name>specs2</name>
+    <organization>
+        <name>org.specs2</name>
+    </organization>
+    <url>http://specs2.org/</url>
+    <licenses>
+        <license>
+            <name>MIT-style</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <url>http://github.com/etorreborre/specs2</url>
+        <connection>scm:git:git@github.com:etorreborre/specs2.git</connection>
+    </scm>
+    <developers>
+        <developer>
+            <id>etorreborre</id>
+            <name>Eric Torreborre</name>
+            <url>http://etorreborre.blogspot.com/</url>
+        </developer>
+    </developers>
+    <properties>
+        <extraDependencyAttributes xml:space="preserve">+e:scalaVersion:#@#:+2.11:#@#:+revision:#@#:+4.0.0:#@#:+module:#@#:+sbteclipse-plugin:#@#:+e:sbtVersion:#@#:+0.13:#@#:+organisation:#@#:+com.typesafe.sbteclipse:#@#:+branch:#@#:+@#:NULL:#@:#@#:
++e:scalaVersion:#@#:+2.11:#@#:+revision:#@#:+1.6.0:#@#:+module:#@#:+sbt-idea:#@#:+e:sbtVersion:#@#:+0.13:#@#:+organisation:#@#:+com.github.mpeltonen:#@#:+branch:#@#:+@#:NULL:#@:#@#:</extraDependencyAttributes>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-compiler</artifactId>
+            <version>2.11.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-library</artifactId>
+            <version>2.11.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang</groupId>
+            <artifactId>scala-reflect</artifactId>
+            <version>2.11.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-sbt</groupId>
+            <artifactId>test-interface</artifactId>
+            <version>1.0</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.9.5</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.pegdown</groupId>
+            <artifactId>pegdown</artifactId>
+            <version>1.6.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scalaz</groupId>
+            <artifactId>scalaz-core_2.11</artifactId>
+            <version>7.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scalaz</groupId>
+            <artifactId>scalaz-effect_2.11</artifactId>
+            <version>7.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scalaz</groupId>
+            <artifactId>scalaz-concurrent_2.11</artifactId>
+            <version>7.2.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.specs2</groupId>
+            <artifactId>classycle</artifactId>
+            <version>1.4.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.ccil.cowan.tagsoup</groupId>
+            <artifactId>tagsoup</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-core</artifactId>
+            <version>1.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.chuusai</groupId>
+            <artifactId>shapeless_2.11</artifactId>
+            <version>2.3.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.scalacheck</groupId>
+            <artifactId>scalacheck_2.11</artifactId>
+            <version>1.13.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-parser-combinators_2.11</artifactId>
+            <version>1.0.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scala-lang.modules</groupId>
+            <artifactId>scala-xml_2.11</artifactId>
+            <version>1.0.5</version>
+        </dependency>
+    </dependencies>
+<build>
+   <pluginManagement>
+      <plugins>
+       <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>2.5.5</version>
+        </plugin>
+  
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>1.4.1</version>
+          <executions>
+            <execution>
+              <id>enforce-versions</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+              <configuration>
+                <rules>
+                  <requireMavenVersion>
+                    <version>${maven.version}</version>
+                  </requireMavenVersion>
+                  <requireJavaVersion>
+                    <version>${java.version}</version>
+                  </requireJavaVersion>
+                  <bannedDependencies>
+                    <excludes>
+                      <!--
+                        Akka depends on io.netty:netty, which puts classes under the org.jboss.netty
+                        package. This conflicts with the classes in org.jboss.netty:netty
+                        artifact, so we have to ban that artifact here. In Netty 4.x, the classes
+                        are under the io.netty package, so it's fine for us to depend on both
+                        io.netty:netty and io.netty:netty-all.
+                       -->
+                      <exclude>org.jboss.netty</exclude>
+                    </excludes>
+                    <searchTransitive>true</searchTransitive>
+                  </bannedDependencies>
+                </rules>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-helper-maven-plugin</artifactId>
+          <version>1.9.1</version>
+        </plugin>
+        <plugin>
+          <groupId>net.alchim31.maven</groupId>
+          <artifactId>scala-maven-plugin</artifactId>
+          <version>3.2.2</version>
+          <executions>
+            <execution>
+              <id>eclipse-add-source</id>
+              <goals>
+                <goal>add-source</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>scala-compile-first</id>
+              <phase>process-resources</phase>
+              <goals>
+                <goal>compile</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>scala-test-compile-first</id>
+              <phase>process-test-resources</phase>
+              <goals>
+                <goal>testCompile</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>attach-scaladocs</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>doc-jar</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <scalaVersion>${scala.version}</scalaVersion>
+            <recompileMode>incremental</recompileMode>
+            <useZincServer>true</useZincServer>
+            <args>
+              <arg>-unchecked</arg>
+              <arg>-deprecation</arg>
+              <arg>-feature</arg>
+              <arg>-language:experimental.macros</arg>
+            </args>
+            <jvmArgs>
+              <jvmArg>-Xms1024m</jvmArg>
+              <jvmArg>-Xmx1024m</jvmArg>
+              <jvmArg>-XX:PermSize=${PermGen}</jvmArg>
+              <jvmArg>-XX:MaxPermSize=${MaxPermGen}</jvmArg>
+              <jvmArg>-XX:ReservedCodeCacheSize=${CodeCacheSize}</jvmArg>
+            </jvmArgs>
+            <javacArgs>
+              <javacArg>-source</javacArg>
+              <javacArg>${java.version}</javacArg>
+              <javacArg>-target</javacArg>
+              <javacArg>${java.version}</javacArg>
+              <javacArg>-Xlint:all,-serial,-path</javacArg>
+            </javacArgs>
+          </configuration>
+        </plugin>
+
+       <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.3</version>
+          <configuration>
+            <source>${java.version}</source>
+            <target>${java.version}</target>
+            <encoding>UTF-8</encoding>
+            <maxmem>1024m</maxmem>
+            <fork>true</fork>
+            <compilerArgs>
+              <arg>-Xlint:all,-serial,-path</arg>
+            </compilerArgs>
+          </configuration>
+        </plugin>
+       <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.6</version>
+        </plugin>
+       </plugins>
+     </pluginManagement>
+ 
+
+    <plugins>
+       <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>net.alchim31.maven</groupId>
+        <artifactId>scala-maven-plugin</artifactId>
+      </plugin>
+       <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+        </plugin>
+    </plugins>
+  </build>
+
+
+<modules>
+<module>common</module>
+<module>codata</module>
+<module>matcher</module>
+<module>core</module>
+<module>analysis</module>
+<module>cats</module>
+<module>form</module>
+<module>gwt</module>
+<module>html</module>
+<module>junit</module>
+<module>markdown</module>
+<module>matcher-extra</module>
+<module>mock</module>
+<module>scalacheck</module>
+<module>examples</module>
+<module>tests</module>
+</modules>
+
+</project>
